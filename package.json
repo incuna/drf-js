@@ -5,8 +5,8 @@
   "main": "drf.js",
   "scripts": {
     "test": "npm run eslint; npm run jscs; npm run karma",
-    "eslint": "eslint src",
-    "jscs": "jscs src",
+    "eslint": "eslint src tests",
+    "jscs": "jscs src tests",
     "karma": "karma start tests/karma.conf.js",
     "karma:watch": "karma start --auto-watch=true --single-run=false",
     "watchify": "watchify ./src/main.js -v -t [ babelify --presets [ es2015 ] ] -o ./drf.js"

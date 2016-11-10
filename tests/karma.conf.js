@@ -1,33 +1,36 @@
-module.exports = function(config) {
-  config.set({
+/* eslint-env node */
+module.exports = function (config) {
+    config.set({
 
-    basePath: '.',
+        basePath: '.',
 
-    frameworks: ['browserify', 'jasmine'],
+        frameworks: ['browserify', 'jasmine'],
 
-    browserify: {
-      debug: true,
-      transform: [
-        ['babelify', {presets: ['es2015']}]
-      ]
-    },
+        browserify: {
+            debug: true,
+            transform: [
+                ['babelify', {
+                    presets: ['es2015']
+                }]
+            ]
+        },
 
-    files: [
-      '*-spec.js'
-    ],
+        files: [
+            '*-spec.js'
+        ],
 
-    preprocessors: {
-      '*-spec.js': 'browserify'
-    },
+        preprocessors: {
+            '*-spec.js': 'browserify'
+        },
 
-    reporters: ['progress', 'dots'],
+        reporters: ['progress', 'dots'],
 
-    colors: true,
+        colors: true,
 
-    logLevel: config.LOG_INFO,
+        logLevel: config.LOG_INFO,
 
-    browsers: ['Firefox'],
+        browsers: ['Firefox'],
 
-    singleRun: true
-  })
-}
+        singleRun: true
+    });
+};
