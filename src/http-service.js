@@ -23,7 +23,8 @@ export const http = {
         };
 
         const headers = new Headers({
-            'X-Requested-With': 'XMLHttpRequest'
+            'X-Requested-With': 'XMLHttpRequest',
+            'Content-Type': 'application/json'
         });
 
         const options = Object.assign({
@@ -32,6 +33,7 @@ export const http = {
             headers
         }, this.baseSettings);
 
+        console.log(url, options);
         return fetch(url, options)
             .then(checkStatus);
     },
@@ -62,7 +64,7 @@ export const http = {
     },
 
     postJSON: function (url, data) {
-        return this.post(url, data);
+        return this.post(url, JSON.stringify(data));
     }
 };
 

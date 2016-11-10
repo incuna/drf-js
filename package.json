@@ -2,7 +2,7 @@
   "name": "drf-js",
   "version": "0.0.0",
   "description": "A Django Rest Framework js wrapper library",
-  "main": "dist/main.js",
+  "main": "dist/http-service.js",
   "scripts": {
     "test": "npm run eslint; npm run jscs; npm run karma-single",
     "eslint": "eslint src",

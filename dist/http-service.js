@@ -32,7 +32,8 @@ var http = exports.http = {
         };
 
         var headers = new Headers({
-            'X-Requested-With': 'XMLHttpRequest'
+            'X-Requested-With': 'XMLHttpRequest',
+            'Content-Type': 'application/json'
         });
 
         var options = Object.assign({
@@ -41,6 +42,7 @@ var http = exports.http = {
             headers: headers
         }, this.baseSettings);
 
+        console.log(url, options);
         return fetch(url, options).then(checkStatus);
     },
 
@@ -70,7 +72,7 @@ var http = exports.http = {
     },
 
     postJSON: function postJSON(url, data) {
-        return this.post(url, data);
+        return this.post(url, JSON.stringify(data));
     }
 };
 
