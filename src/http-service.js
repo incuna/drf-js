@@ -43,7 +43,7 @@ export const http = {
         return csrfToken;
     },
 
-    postData: function (url, data) {
+    postDataAsForm: function (url, data) {
         const formData = new FormData();
 
         formData.append('csrfmiddlewaretoken', this.getCsrfToken());
@@ -59,6 +59,10 @@ export const http = {
         const formData = new FormData(form);
 
         return this.post(url, formData);
+    },
+
+    postJSON: function (url, data) {
+        return this.post(url, data);
     }
 };
 

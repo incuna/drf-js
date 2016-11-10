@@ -2,14 +2,15 @@
   "name": "drf-js",
   "version": "0.0.0",
   "description": "A Django Rest Framework js wrapper library",
-  "main": "drf.js",
+  "main": "dist/main.js",
   "scripts": {
     "test": "npm run eslint; npm run jscs; npm run karma-single",
     "eslint": "eslint src",
     "jscs": "jscs src",
     "karma-single": "karma start --single-run=true",
     "karma-watch": "karma start",
-    "watchify": "watchify ./src/main.js -v -t [ babelify --presets [ es2015 ] ] -o ./drf.js"
+    "babel": "babel src --out-dir dist --presets es2015",
+    "babel-watch": "babel -w src --out-dir dist --presets es2015"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "homepage": "https://github.com/incuna/drf-js#readme",
   "devDependencies": {
     "babel": "6.5.2",
+    "babel-cli": "6.18.0",
     "babel-preset-es2015": "6.18.0",
     "babelify": "7.3.0",
     "browserify": "13.1.1",
@@ -33,8 +35,7 @@
     "karma": "1.3.0",
     "karma-browserify": "5.1.0",
     "karma-firefox-launcher": "1.0.0",
-    "karma-jasmine": "1.0.2",
-    "watchify": "3.7.0"
+    "karma-jasmine": "1.0.2"
   },
   "dependencies": {
     "whatwg-fetch": "1.0.0"

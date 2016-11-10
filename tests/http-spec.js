@@ -104,7 +104,7 @@ describe('http', function () {
 
     });
 
-    describe('postData method', function () {
+    describe('postDataAsForm method', function () {
 
         it('should parse the given data as FormData and attach the csrf cookie', function () {
             expect(window.fetch).not.toHaveBeenCalled();
@@ -123,7 +123,7 @@ describe('http', function () {
                 csrfmiddlewaretoken: 'SECURITY11'
             };
 
-            this.http.postData(this.url, data);
+            this.http.postDataAsForm(this.url, data);
 
             const args = window.fetch.calls.argsFor(0);
 
@@ -140,7 +140,7 @@ describe('http', function () {
         });
 
         it('should have the right AJAX header', function () {
-            this.http.postData(this.url, {});
+            this.http.postDataAsForm(this.url, {});
 
             const args = window.fetch.calls.argsFor(0);
 
@@ -154,10 +154,35 @@ describe('http', function () {
         it('should error on 400 reponse', function (done) {
             this.promiseHelper.resolve(this.response400);
 
-            this.http.postData(this.url, {})
+            this.http.postDataAsForm(this.url, {})
                 .then(() => fail('Promise should have been rejected'))
                 .catch(() => done());
         });
+    });
+
+    describe('postJSON method', function () {
+
+        beforeEach(function () {
+            this.promiseHelper.resolve(this.jsonResponse);
+        });
+        
+        it('should make a fetch request', function (done) {
+            const data = {
+                a: 1
+            };
+
+            this.http.postJSON(this.url, data)
+                .then(() => {
+                    expect(fetch).toHaveBeenCalled();
+                    done();
+                });
+        });
+
+        it('should return the data object', function () {
+            
+        });
+        
+        
     });
 
 });
