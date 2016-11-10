@@ -13,11 +13,11 @@ module.exports = function(config) {
     },
 
     files: [
-      'tests/*-spec.js'
+      '*-spec.js'
     ],
 
     preprocessors: {
-      'tests/*-spec.js': 'browserify'
+      '*-spec.js': 'browserify'
     },
 
     reporters: ['progress', 'dots'],
