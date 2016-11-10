@@ -1,1 +1,3 @@
-dupa = {x:'a'};
+export const test = {
+    x: 'a'
+};
