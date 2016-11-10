@@ -1,2 +1,9 @@
 language: node_js
 node_js: 6.2.2
+notifications:
+  email: false
+before_script:
+    - export DISPLAY=:99.0
+    - sh -e /etc/init.d/xvfb start
+script:
+    - npm test --silent
