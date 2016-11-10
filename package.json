@@ -1,0 +1,19 @@
+{
+  "name": "drf-js",
+  "version": "0.0.0",
+  "description": "A Django Rest Framework js wrapper library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/incuna/drf-js.git"
+  },
+  "author": "Incuna",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/incuna/drf-js/issues"
+  },
+  "homepage": "https://github.com/incuna/drf-js#readme"
+}
