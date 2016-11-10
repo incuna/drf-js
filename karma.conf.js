@@ -22,16 +22,12 @@ module.exports = function(config) {
 
     reporters: ['progress', 'dots'],
 
-    port: 9876,
-
     colors: true,
 
     logLevel: config.LOG_INFO,
 
-    autoWatch: true,
-
     browsers: ['Firefox'],
 
-    singleRun: false,
+    singleRun: true
   })
 }
