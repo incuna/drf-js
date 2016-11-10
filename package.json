@@ -8,7 +8,7 @@
     "eslint": "eslint src",
     "jscs": "jscs src",
     "karma": "karma start",
-    "karma-watch": "karma start --auto-watch=true --single-run=false",
+    "karma:watch": "karma start --auto-watch=true --single-run=false",
     "watchify": "watchify ./src/main.js -v -t [ babelify --presets [ es2015 ] ] -o ./drf.js"
   },
   "repository": {
