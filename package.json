@@ -4,10 +4,11 @@
   "description": "A Django Rest Framework js wrapper library",
   "main": "drf.js",
   "scripts": {
-    "test": "npm run eslint; npm run jscs; npm run karma",
+    "test": "npm run eslint; npm run jscs; npm run karma-single",
     "eslint": "eslint src",
     "jscs": "jscs src",
-    "karma": "karma start",
+    "karma-single": "karma start --single-run=true",
+    "karma-watch": "karma start",
     "watchify": "watchify ./src/main.js -v -t [ babelify --presets [ es2015 ] ] -o ./drf.js"
   },
   "repository": {

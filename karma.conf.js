@@ -3,8 +3,6 @@ module.exports = function(config) {
 
     basePath: '.',
 
-    // frameworks to use
-    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['browserify', 'jasmine'],
 
     browserify: {
@@ -34,8 +32,6 @@ module.exports = function(config) {
 
     browsers: ['Firefox'],
 
-    // Continuous Integration mode
-    // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true,
+    singleRun: false,
   })
 }
