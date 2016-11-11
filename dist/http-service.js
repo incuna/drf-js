@@ -11,7 +11,7 @@ var http = exports.http = {
     baseSettings: {
         credentials: 'same-origin'
     },
-    getHtml: function getHtml(url) {
+    getRaw: function getRaw(url) {
         return fetch(url, this.baseSettings).then(function (response) {
             return response.text();
         });
@@ -69,8 +69,8 @@ var http = exports.http = {
         return this.post(url, formData);
     },
 
-    postForm: function postForm(url, form) {
-        var formData = new FormData(form);
+    postForm: function postForm(url, formElement) {
+        var formData = new FormData(formElement);
 
         return this.post(url, formData);
     },

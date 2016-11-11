@@ -32,14 +32,14 @@ describe('http', function () {
         window.fetch = this.originalFetch;
     });
 
-    describe('getHtml method', function () {
+    describe('getRaw method', function () {
 
         beforeEach(function () {
             this.promiseHelper.resolve(this.textResponse);
         });
 
         it('should return a string promise', function (done) {
-            this.http.getHtml().then((response) => {
+            this.http.getRaw().then((response) => {
                 expect(response).toEqual(jasmine.any(String));
                 done();
             });

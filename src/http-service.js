@@ -4,7 +4,7 @@ export const http = {
     baseSettings: {
         credentials: 'same-origin'
     },
-    getHtml: function (url) {
+    getRaw: function (url) {
         return fetch(url, this.baseSettings)
             .then((response) => response.text());
     },
@@ -61,8 +61,8 @@ export const http = {
         return this.post(url, formData);
     },
 
-    postForm: function (url, form) {
-        const formData = new FormData(form);
+    postForm: function (url, formElement) {
+        const formData = new FormData(formElement);
 
         return this.post(url, formData);
     },
