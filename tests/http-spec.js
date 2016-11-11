@@ -178,11 +178,6 @@ describe('http', function () {
                 });
         });
 
-        it('should return the data object', function () {
-            
-        });
-        
-        
     });
 
 });
