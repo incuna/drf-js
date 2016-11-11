@@ -4,11 +4,11 @@
   "description": "A Django Rest Framework js wrapper library",
   "main": "dist/http-service.js",
   "scripts": {
-    "test": "npm run eslint; npm run jscs; npm run karma-single",
-    "eslint": "eslint src",
-    "jscs": "jscs src",
-    "karma-single": "karma start --single-run=true",
-    "karma-watch": "karma start",
+    "test": "npm run eslint; npm run jscs; npm run karma",
+    "eslint": "eslint src tests",
+    "jscs": "jscs src tests",
+    "karma": "karma start tests/karma.conf.js",
+    "karma:watch": "karma start --auto-watch=true --single-run=false",
     "babel": "babel src --out-dir dist --presets es2015",
     "babel-watch": "babel -w src --out-dir dist --presets es2015"
   },
