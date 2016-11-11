@@ -4,6 +4,8 @@ The aim of this library is to make communication with DRF easy:
 * default data structure support
 * error handling
 
+**IMPORTANT** you should include the `babel-polyfill` package at the top of your project if you plan on using this library.
+
 ## Installation
 
 - `npm install`
