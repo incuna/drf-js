@@ -165,7 +165,7 @@ describe('http', function () {
         beforeEach(function () {
             this.promiseHelper.resolve(this.jsonResponse);
         });
-        
+
         it('should make a fetch request', function (done) {
             const data = {
                 a: 1

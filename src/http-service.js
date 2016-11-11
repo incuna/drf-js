@@ -13,7 +13,7 @@ export const http = {
             .then((response) => response.json());
     },
 
-    post: function (url, body) {
+    post: function (url, body, extraHeaders) {
         const checkStatus = function (response) {
             if (response.status >= 400) {
                 return Promise.reject(response);
@@ -22,10 +22,15 @@ export const http = {
             return Promise.resolve(response);
         };
 
-        const headers = new Headers({
-            'X-Requested-With': 'XMLHttpRequest',
-            'Content-Type': 'application/json'
-        });
+        const plainHeaders = {
+            'X-Requested-With': 'XMLHttpRequest'
+        };
+
+        if (extraHeaders) {
+            Object.assign(plainHeaders, extraHeaders);
+        }
+
+        const headers = new Headers(plainHeaders);
 
         const options = Object.assign({
             method: 'POST',
@@ -33,7 +38,6 @@ export const http = {
             headers
         }, this.baseSettings);
 
-        console.log(url, options);
         return fetch(url, options)
             .then(checkStatus);
     },
@@ -64,7 +68,10 @@ export const http = {
     },
 
     postJSON: function (url, data) {
-        return this.post(url, JSON.stringify(data));
+        const headers = {
+            'Content-Type': 'application/json'
+        };
+        return this.post(url, JSON.stringify(data), headers);
     }
 };
 

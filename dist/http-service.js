@@ -22,7 +22,7 @@ var http = exports.http = {
         });
     },
 
-    post: function post(url, body) {
+    post: function post(url, body, extraHeaders) {
         var checkStatus = function checkStatus(response) {
             if (response.status >= 400) {
                 return Promise.reject(response);
@@ -31,10 +31,15 @@ var http = exports.http = {
             return Promise.resolve(response);
         };
 
-        var headers = new Headers({
-            'X-Requested-With': 'XMLHttpRequest',
-            'Content-Type': 'application/json'
-        });
+        var plainHeaders = {
+            'X-Requested-With': 'XMLHttpRequest'
+        };
+
+        if (extraHeaders) {
+            Object.assign(plainHeaders, extraHeaders);
+        }
+
+        var headers = new Headers(plainHeaders);
 
         var options = Object.assign({
             method: 'POST',
@@ -42,7 +47,6 @@ var http = exports.http = {
             headers: headers
         }, this.baseSettings);
 
-        console.log(url, options);
         return fetch(url, options).then(checkStatus);
     },
 
@@ -72,7 +76,10 @@ var http = exports.http = {
     },
 
     postJSON: function postJSON(url, data) {
-        return this.post(url, JSON.stringify(data));
+        var headers = {
+            'Content-Type': 'application/json'
+        };
+        return this.post(url, JSON.stringify(data), headers);
     }
 };
 
